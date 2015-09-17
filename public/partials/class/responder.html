@@ -1,0 +1,30 @@
+<div class="responder__form relative" ng-controller="respondCtrl">
+  <form submit="responderPregunta()">
+    <textarea ng-model="responder.respuesta" class="responder__textarea" placeholder="Responder la duda de tu compañero"></textarea>
+    <button class="responder__btn" ng-click="respond()"><i class="material-icons">edit</i></button>
+  </form>
+
+    <article ng-repeat="respuesta in respondNew | orderBy : '-fecha'" class="respuesta__card">
+      <div ng-if="idpregunta == respuesta.pregunta.id">
+        <figure class="respuesta__avatar">
+          <img width="50" height="50" src="{{ respuesta.user.avatar }}" alt="{{ respuesta.user.firstName }} {{ respuesta.user.lastName }}" >
+          <figcaption class="respuesta__name">
+            <p>{{ respuesta.user.firstName }} {{ respuesta.user.lastName }}</p>
+          </figcaption>
+        </figure>
+        <p class="respuesta__resp">{{ respuesta.respuesta  }}</p>
+
+        <!--<div class="actions" ng-controller="darVoto">
+          <a class="action__favorite" ng-click="votar()">
+            <input type="hidden" ng-model="respuesta.id">
+            <input type="hidden" ng-model="respuesta.pregunta.id">
+            <i class="material-icons love">favorite</i>
+            <span>{{ respuesta.votos }}</span>
+          </a>
+        </div>-->
+
+        <p class="respuesta__fecha">{{ respuesta.fecha | date:'medium' }}</p>
+      </div>
+
+    </article>
+</div>

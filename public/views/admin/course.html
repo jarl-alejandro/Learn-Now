@@ -1,0 +1,30 @@
+<toolbar></toolbar>
+<section class="dashboard">
+  <p>
+    <a href="#/dashboard">Atras</a>
+  </p>
+  <h2>{{ course.title }}</h2>
+  <div>
+    <article ng-controller="addClassCtrl">
+      <button ng-click="clase = !clase">Clase</button>
+      <div ng-if="clase">
+        <form-classes></form-classes>
+      </div>
+      <div ng-if="clase === false">
+        <p>naa!!!</p>
+      </div>
+      <p>{{ clase }}</p>
+
+    </article>
+  </div>
+  <div>
+    <h3>Autor:</h3>
+    <h4>{{ course.teacher.firstName }} {{ course.teacher.lastName }}</h4>
+    <img src="{{ course.teacher.avatar }}" alt="{{ course.teacher.firstName }}" width="50" height="50" style="border-radius:50%">
+    <p>{{ course.teacher.about }}</p>
+  </div>
+
+  <h3>{{ course.type }}</h3>
+  <p>{{ course.description }}</p>
+  <img src="{{ course.photo }}" alt="{{ course.title }}" width="150" height="150">
+</section>

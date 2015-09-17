@@ -1,0 +1,48 @@
+<div ng-controller="Preguntar">
+  <form ng-submit="chat()" class="card__form">
+    <textarea ng-model="pregunta" placeholder="Escribe cual es tu pregunta" class="card__form__textarea"></textarea>
+    <button class="card__form__button">
+      <i class="material-icons">add</i>
+    </button>
+  </form>
+  <section class="card-answer">
+    <article class="card-answer__article" ng-repeat="pregunta in answers | orderBy : '-date'" ng-controller="ResponderCtrl">
+      <figure class="card-answer__figure--avatar">
+        <img src="{{ pregunta.user.avatar }}" alt="{{ pregunta.user.firstName }} {{ pregunta.user.lastName }}">
+        <figcaption class="card-answer__figure--name-user">{{ pregunta.user.firstName }} {{ pregunta.user.lastName }}</figcaption>
+      </figure>
+      <p class="card-answer__p">
+        {{ pregunta.answer }}
+      </p>
+      <div class="card_answer__actions relative">
+
+        <div class="answer__action" ng-controller="giveLike">
+
+          <a class="answer_action-a" ng-click="like()">
+            <input type="hidden" ng-model="pregunta.id">
+            <input type="hidden" ng-model="pregunta">
+            <i class="material-icons love">favorite</i>
+            <span>{{ pregunta.votes }}</span>
+          </a>
+
+          <a class="comment_action" ng-click="responder()">
+            <i class="material-icons comment-icon">mode_comment</i>
+            <span>
+              Responder
+            </span>
+          </a>
+
+        </div>
+
+        <div class="answer__date">
+          <p>{{ pregunta.date | date:'medium' }}</p>
+        </div>
+
+      </div>
+
+      <div class="respuestas" ng-show="quitarPregunta">
+        <reponder-pregunta></reponder-pregunta>
+      </div>
+    </article>
+  </section>
+</div>

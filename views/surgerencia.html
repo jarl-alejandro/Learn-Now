@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="LearnNow">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1">
+  <title>Learn Now</title>
+  <link rel="stylesheet" href="/dist/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header class="surgerencias card">
+    <h2>Estas son las surgerencias de los usuarios de la plataforma</h2>
+  </header>
+  <section>
+    {% for surge in surgerencias %}
+      <article class="card surge">
+        <figure class="surge_user">
+          <img src="{{ surge.user.avatar }}" alt="{{ surge.user.firstName }} {{ surge.user.lastName }}">
+          <figcaption class="surge__nombre">{{ surge.user.firstName }} {{ surge.user.lastName }}</figcaption>
+        </figure>
+        <p class="surge__texto">{{ surge.surgerencia }}</p>
+      </article>
+    {% endfor %}
+  </section>
+</body>
+</html>

@@ -1,0 +1,155 @@
+.mensaje-float
+  background rgba(primary_text, .8)
+  color white
+  padding .2em
+  height 1.1em
+  position absolute
+  top 19em
+  right 2em
+  font-size 15px
+  font-style italic
+  display none
+  transition all ease 2s
+
+.section__course
+  padding 15em 0
+
+.detail__title
+  padding 2.5em 0 0 0
+  margin 0
+  text-align center
+  color primary_text
+  font-size 2em
+
+.detail__descipcion
+  text-align center
+  margin 0
+  font-weight bold
+  padding 1em 0 0 0
+  color primary_text
+
+.agregar__curso-btn
+  background btn-float-color
+  color white
+  border 0
+  width 50px
+  height 50px
+  border-radius 50%
+  margin 1em 0
+  box-shadow 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12)
+  outline none
+  position absolute
+  right 1em
+  &:hover
+    .mensaje-float
+      display block
+
+.detail__video
+  margin 4em 0 0 0
+  iframe
+    width 100%
+    height 12em
+
+.tematio__title
+  background accent_color !important
+  text-align center
+  color white
+  margin 1em 0
+.detail__temario
+  display flex
+  justify-content center
+  margin-top 1em
+  flex-wrap wrap
+  pre
+    font-weight bold
+    font-family initial
+    font-size 1.1em
+
+.profesor
+  background white
+
+.profesor__avatar
+  display flex
+  flex-wrap wrap
+  justify-content center
+  padding 0
+  margin 0 10%
+  width 16em
+  img
+    width 15em
+    height 15em
+    border-radius 50%
+    box-shadow 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12)
+    //margin 1em 0 0 0
+    border 7px solid accent_color
+
+.profesor__about
+  align-self center
+  p
+    text-align center
+    margin 0
+    padding 0
+    font-weight bold
+    font-size 1.1em
+    font-style italic
+  p[data-profesor="nombres"]
+    color accent_color
+
+.porque
+  display flex
+  flex-wrap wrap
+  figure
+    display flex
+    margin 1em
+  img
+    width 10em
+
+.descrip_detail
+  p
+    margin-left 1em
+    text-align center
+    font-weight bold
+
+@media (min-width: 468px)
+  .detail__title
+    padding 3.5em 0 0 0
+  .detail__video
+    display flex
+    justify-content center
+    iframe
+      width 35em
+
+  .profesor__avatar
+    margin 0 30%
+@media (min-width: 768px)
+  .porque
+    flex-wrap wrap
+    justify-content space-around
+
+    figure
+      display block
+      img
+        margin 0 0 0 5em
+  .descrip_detail
+    p
+      width 20em
+
+@media (min-width: 992px)
+  .profesor__avatar
+    margin 0 40%
+  .porque
+    flex-wrap wrap
+    justify-content space-around
+
+
+@media (min-width: 1200px)
+  .porque
+    flex-wrap wrap
+    justify-content space-around
+    figure
+      display block
+      img
+        width 15em
+        margin 0 0 0 7em
+  .descrip_detail
+    margin-left 3em

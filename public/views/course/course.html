@@ -1,0 +1,99 @@
+<toolbar></toolbar>
+<article>
+<style>
+  .portada{
+    background: url("{{ course.photo }}") no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #03A9F4;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 18em;
+  }
+</style>
+<div class="portada">
+  <h2 class="detail__title">{{ course.title }}</h2>
+  <p class="detail__descipcion">{{ course.description }}</p>
+</div>
+
+<section class="section__course relative">
+  <article ng-if="micurso.length === 0">
+    <button class="agregar__curso-btn" ng-click="take()">
+      <i class="material-icons icon-take-btn">add</i>
+    </button>
+  </article>
+  <article ng-if="micurso.length >= 1">
+    <div ng-repeat="mi in micurso">
+
+      <div ng-if="idcourse === mi.course.id">
+        <a href="#/mi/curso/{{idcourse}}">
+          <button class="agregar__curso-btn">IR</button>
+        </a>
+      </div>
+
+      <div ng-if="idcourse != mi.course.id">
+        <button class="agregar__curso-btn" ng-click="take()">
+          <i class="material-icons icon-take-btn">add</i>
+        </button>
+      </div>
+
+    </div>
+  </article>
+
+  <div ng-controller="embedVideo" class="detail__video">
+    <iframe ng-src="{{trustSrc(course.video)}}" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+  <h3 class="tematio__title card">Temario del curso</h3>
+  <div class="detail__temario">
+    <pre>{{ course.temario }}</pre>
+  </div>
+
+  <div class="profesor">
+    <figure class="profesor__avatar">
+      <img src="{{ course.teacher.avatar }}" alt="{{ course.teacher.firstName }} {{ course.teacher.lastName }}">
+      <figcaption class="profesor__about">
+        <p data-profesor="nombres">{{ course.teacher.firstName }} {{ course.teacher.lastName }}</p>
+        <p data-profesor="about">{{ course.teacher.about }}</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="porque">
+    <figure class="video__clase">
+      <img src="../../dist/img/video_clase.png" alt="video_clase.png">
+      <figcaption class="descrip_detail">
+        <p class="video__descripcion">
+          Aprende con clases interactica y en video la mejor forma de aprender.
+        </p>
+      </figcaption>
+    </figure>
+    <figure class="chat__detail">
+      <img src="../../dist/img/chat.png" alt="chat.png">
+      <figcaption class="descrip_detail">
+        <p class="chat__descripcion">
+          Conversa con tus compañeros preguntales y responde dudas de otros compañeros con nuestro chat de clase.
+        </p>
+      </figcaption>
+    </figure>
+    <figure class="recurso__detail">
+      <img src="../../dist/img/recursos.png" alt="recursos.png">
+      <figcaption class="descrip_detail">
+        <p class="recurso__descripcion">
+          Los recursos como la presentacion los link del codigo en github.
+          Escribe tus apuntes que te parecen importante de la clase.
+        </p>
+      </figcaption>
+    </figure>
+    <figure class="recurso__detail">
+      <img src="../../dist/img/tutorials.png" alt="tutorials.png">
+      <figcaption class="descrip_detail">
+        <p class="recurso__descripcion">
+          Todas las clases estan ordenadas para una mejor comprehesion
+        </p>
+      </figcaption>
+    </figure>
+  </div>
+
+</section>
+

@@ -1,0 +1,101 @@
+<toolbar></toolbar>
+<style>
+  .taller__header{
+    background-image: url("{{ taller.photo }}");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+</style>
+<section class="mi-curso__section taller_container" ng-controller="surgerenciaCtrl">
+
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+
+  <section class="taller_wrapper" ng-class="{ 'blur':surgerencia }">
+    <article class="taller">
+
+      <div class="taller__header">
+        <h2 class="taller__title">{{ taller.title }}</h2>
+        <p class="taller__date">{{ taller.date | date:'medium' }}</p>
+      </div>
+      <div class="taller__phrase">
+        <p>{{ taller.phrase }}</p>
+      </div>
+      <div class="taller__video" ng-controller="embedVideo">
+        <iframe ng-src="{{trustSrc(taller.video)}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="taller__contenido">
+        <pre>{{ taller.content }}</pre>
+      </div>
+    </article>
+
+    <article class="taller-question" ng-controller="tallerPregunta">
+      <div class="taller-question__form">
+        <div class="user__pregunta" ng-controller="profile">
+          <img src="{{ user.avatar }}" alt="{{ user.firstName }}">
+        </div>
+        <form ng-submit="question()" method="POST" class="form-chat">
+          <input type="text" placeholder="Has tu pregunta" class="pregunta" ng-model="pregunta" />
+          <button class="send__pregunta"><i class="material-icons icon-create">create</i> </button>
+        </form>
+      </div>
+
+      <article class="taller_question__item relative" ng-repeat="pregunta in preguntas | orderBy : '-date'" ng-controller="ResponderCtrl">
+        <figure class="question__item_avatar">
+          <img src="{{ pregunta.user.avatar }}" alt="{{ pregunta.user.firstName }}">
+          <ficaption class="question__item_name">
+            <p>{{ pregunta.user.firstName }}</p>
+          </ficaption>
+        </figure>
+        <div class="question__item">
+          <p class="item__p">{{ pregunta.answer }}</p>
+        </div>
+
+        <div class="question__actions" ng-controller="giveLike">
+          <a class="action__love" ng-click="like()">
+            <input type="hidden" ng-model="pregunta.id">
+            <i class="material-icons love">favorite</i>
+            <span>{{ pregunta.votes }}</span>
+          </a>
+          <a class="action__comment" ng-click="responder()">
+            <i class="material-icons comment-icon">mode_comment</i>
+            <span>
+              Responder
+            </span>
+          </a>
+        </div>
+
+        <div class="question__date">
+          <p>{{ pregunta.date | date:'medium' }}</p>
+        </div>
+
+        <div class="respuestas" ng-show="quitarPregunta">
+          <reponder-pregunta></reponder-pregunta>
+        </div>
+      </article>
+
+    </article>
+
+  </section>
+
+  <aside class="taller-author" ng-class="{ 'blur':surgerencia }">
+    <h3 class="taller-author__title">Autor del taller</h3>
+    <figure class="talller-auhtor__foto">
+      <img src="{{ taller.author.avatar }}" alt="{{ taller.author.firstName }} {{ taller.author.lastName }}">
+      <figcaption>
+        <p class="taller-author__name">{{ taller.author.firstName }} {{ taller.author.lastName }}</p>
+      </figcaption>
+    </figure>
+    <div class="taller-author__description">
+      <p>{{ taller.author.about }}</p>
+    </div>
+  </aside>
+  <button class="btn-surgerencia" ng-click="surge()">
+    <i class="material-icons">mode_edit</i>
+  </button>
+</section>

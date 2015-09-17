@@ -1,0 +1,62 @@
+<toolbar></toolbar>
+<style>
+  .headerCourse{
+    background: url("{{ course.photo }}") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 7em;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+</style>
+<section ng-controller="surgerenciaCtrl">
+
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+
+  <div class="headerCourse" ng-class="{ 'blur':surgerencia }">
+    <h2 class="headerCourse-h2">{{ course.title }}</h2>
+  </div>
+  <section class="dashboard relative" ng-class="{ 'blur':surgerencia }">
+    <section class="top__header">
+
+      <aside class="card Teacher-info">
+        <h3 class="Teacher-info-title">Profesor de este curso</h3>
+        <figure class="Teacher-info-avatar">
+          <img src="{{ course.teacher.avatar }}" alt="{{ course.teacher.firstName }} {{ course.teacher.lastName }}">
+          <figcaption class="Teacher-info-name">
+            <p>{{ course.teacher.firstName }} {{ course.teacher.lastName }}</p>
+          </figcaption>
+        </figure>
+        <p class="Teacher-info-desciption">
+          {{ course.teacher.about }}
+        </p>
+      </aside>
+
+      <div class="mi-curso">
+        <article ng-repeat="clase in clases" class="clase relative">
+          <h3 class="clase__title">
+            {{ clase.title }}
+          </h3>
+          <a href="#/class/{{ clase.id }}" class="go__a">
+            <button class="btn__clase-go">
+              <i class="material-icons">arrow_forward</i>
+            </button>
+          </a>
+          <figure class="clase__photo">
+            <img src="{{ clase.photo }}" alt="{{ clase.title }}">
+          </figure>
+          <div class="clase__description">
+            <p>{{ clase.description | limitTo:48 }}........</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+  <button class="btn-surgerencia" ng-click="surge()">
+    <i class="material-icons">mode_edit</i>
+  </button>
+</section>
+

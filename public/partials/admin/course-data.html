@@ -1,0 +1,11 @@
+<section class="courseData" ng-controller="appCtrl">
+  <h3>Cursos</h3>
+  <a href="#/add/course">Nuevo curso</a>
+    <article ng-repeat="course in courses">
+      <a href="#/dashboard/course/{{ course.id }}">
+        <p>{{ course.title }}</p>
+      </a>
+      <img src="{{ course.photo }}" alt="{{ course.title }}" width="50" height="50">
+      <hr>
+    </article>
+</section>

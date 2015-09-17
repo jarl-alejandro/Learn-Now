@@ -1,0 +1,50 @@
+<toolbar></toolbar>
+<section ng-controller="surgerenciaCtrl" class="mi-curso__section">
+
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+
+  <div class="mi-curso" ng-class="{ 'blur':surgerencia }">
+    <article ng-repeat="course in courses" class="clase relative">
+      <h3 class="clase__title">
+        {{ course.title }}
+      </h3>
+      <a href="#/course/{{course.id}}" class="go__a">
+        <button class="btn__clase-go">
+          <i class="material-icons">arrow_forward</i>
+        </button>
+      </a>
+      <figure class="clase__photo">
+        <img src="{{ course.photo }}" alt="{{ course.title }}">
+      </figure>
+      <div class="clase__description">
+        <img class="curso__avatar" src="{{ course.teacher.avatar }}" alt="{{ course.teacher.firstName}} {{ course.teacher.lastName}}">
+        <p class="Teacher-name">{{ course.teacher.firstName}} {{ course.teacher.lastName}}</p>
+      </div>
+    </article>
+  </div>
+  <button class="btn-surgerencia" ng-click="surge()">
+    <i class="material-icons">mode_edit</i>
+  </button>
+</section>
+
+<!--
+  <article ng-repeat="course in courses" class="card Course">
+    <h2 class="Course-title">{{ course.title }}</h2>
+    <div class="Course-photo">
+      <img src="{{ course.photo }}" class="">
+    </div>
+    <a href="#/course/{{course.id}}">
+      <button class="Course-take">
+        <i class="material-icons">navigate_next</i>
+      </button>
+    </a>
+
+    <div class="Teacher">
+      <img class="Teacher-avatar" src="{{ course.teacher.avatar }}" alt="{{ course.teacher.firstName}} {{ course.teacher.lastName}}">
+      <p class="Teacher-name">{{ course.teacher.firstName}} {{ course.teacher.lastName}}</p>
+    </div>
+
+  </article>
+-->

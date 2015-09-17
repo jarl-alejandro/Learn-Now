@@ -1,0 +1,30 @@
+<h1>Signup</h1>
+<button class="btn btn-block btn-facebook" ng-click="authenticate('facebook')">
+  <i class="ion-social-facebook"></i> Sign in with Facebook
+</button>
+<form method="POST" ng-submit="signup()" enctype="multipart/form-data">
+  <p>
+    <input type="text" ng-model="authData.firstName" placeholder="firstName" />
+  </p>
+  <p>
+    <input type="text" ng-model="authData.lastName" placeholder="lastName" />
+  </p>
+  <p>
+    <input type="email" ng-model="authData.email" placeholder="email" />
+  </p>
+  <p>
+    <input type="password" ng-model="authData.password" placeholder="password" />
+  </p>
+
+  <p>
+    <input type="file" file-model="authData.avatar" placeholder="avatar" />
+  </p>
+
+  <p>
+    <textarea ng-model="authData.about" placeholder="about"></textarea>
+  </p>
+  <p>
+    <input type="submit" value="registrate">
+  </p>
+</form>
+

@@ -1,0 +1,30 @@
+<toolbar></toolbar>
+<section ng-controller="surgerenciaCtrl" class="mi-curso__section">
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+
+  <h2 ng-class="{ 'blur':surgerencia }"  class="title__taller_header">Articulos del blog</h2>
+  <div ng-class="{ 'blur':surgerencia }"  class="mi-curso" ng-controller="taller">
+    <article class="clase relative"ng-repeat="taller in talleres">
+      <h3 class="clase__title">
+       {{ taller.title }}
+      </h3>
+      <a  href="#/taller/{{ taller.id }}" class="go__a">
+        <button class="btn__clase-go">
+          <i class="material-icons">arrow_forward</i>
+        </button>
+      </a>
+      <figure class="clase__photo">
+        <img src="{{ taller.photo }}" alt="{{ taller.title }}">
+      </figure>
+      <div class="clase__description">
+        <p>{{ taller.phrase | limitTo:65 }}........</p>
+      </div>
+    </article>
+  </div>
+  <h4 ng-if="talleres === false">Por el momento no hay talleres disponibles</h4>
+  <button class="btn-surgerencia" ng-click="surge()">
+    <i class="material-icons">mode_edit</i>
+  </button>
+</section>

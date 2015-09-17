@@ -1,0 +1,38 @@
+<toolbar></toolbar>
+<section class="dashboard">
+  <h2>Registrar nuevo profesor</h2>
+  <p>
+    <a href="#/dashboard">Atras</a>
+  </p>
+  <form method="POST" ng-submit="teacher()">
+    <p>
+      <input type="text" ng-model="dataForm.firstName" placeholder="Nombre" />
+    </p>
+    <p>
+      <input type="text" ng-model="dataForm.lastName" placeholder="Apellido" />
+    </p>
+    <p>
+      <input type="email" ng-model="dataForm.email" placeholder="Email" />
+    </p>
+    <p>
+      <input type="password" ng-model="dataForm.password" placeholder="Contraseña" />
+    </p>
+    <p>
+      <input type="avatar" ng-model="dataForm.avatar" placeholder="Avatar" />
+    </p>
+    <p>
+      <textarea ng-model="dataForm.about" placeholder="Sobre el profesor"></textarea>
+    </p>
+    <p>
+      <select name="staff" ng-model="dataForm.staff">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <select name="Profesor" ng-model="dataForm.teacher">
+        <option value="true">Es profesor</option>
+        <option value="false">No es profesor</option>
+      </select>
+    </p>
+    <input type="submit" value="Registar profesor">
+  </form>
+</section>

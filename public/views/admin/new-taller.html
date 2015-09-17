@@ -1,0 +1,17 @@
+<toolbar></toolbar>
+<section class="dashboard">
+  <h2>Agrgar nuevo taller</h2>
+  <form ng-submit="newTaller()">
+    <p><input type="text" ng-model="dataForm.title" placeholder="title"></p>
+    <p><input type="text" ng-model="dataForm.phrase" placeholder="phrase"></p>
+    <p><input type="text" ng-model="dataForm.video" placeholder="video"></p>
+    <p><textarea class="editor__taller" ng-model="dataForm.content" placeholder="Contenido solo 125"></textarea></p>
+    <p><input type="text" ng-model="dataForm.photo" placeholder="Foto"></p>
+    <p ng-controller="getTeacher">
+      <select ng-model="dataForm.author">
+        <option ng-repeat="teacher in teachers" value="{{ teacher.id }}">{{ teacher.firstName }} {{ teacher.lastName }}</option>
+      </select>
+    </p>
+    <input type="submit" value="Crear Taller">
+  </form>
+</section>

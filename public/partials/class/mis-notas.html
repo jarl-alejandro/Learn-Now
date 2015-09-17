@@ -1,0 +1,15 @@
+<div ng-controller="MisApuntes">
+  <form ng-submit="apuntes()" class="card__form">
+    <textarea ng-model="apunte" placeholder="Escribe cual es tu pregunta" class="card__form__textarea"></textarea>
+    <button class="card__form__button">
+      <i class="material-icons">add</i>
+    </button>
+  </form>
+  <section class="card-answer">
+    <article class="card-answer__article" ng-repeat="miApunte in misApuntes | orderBy : '-fecha' ">
+      <div ng-if="miApunte.clase.id === idclase || miApunte.clase === idclase">
+        <p class="mi-apunte">{{ miApunte.apunte }}</p>
+      </div>
+    </article>
+  </section>
+</div>

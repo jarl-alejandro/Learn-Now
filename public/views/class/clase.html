@@ -1,0 +1,60 @@
+<toolbar></toolbar>
+<style>
+  .header__class{
+    background: url("{{ clase.photo }}") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 10em;
+    right: 0;
+    left: 0;
+    position: absolute;
+  }
+</style>
+
+<section ng-controller="surgerenciaCtrl">
+
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+  <div class="header__class" ng-class="{ 'blur':surgerencia }">
+    <h2 class="header_class-title">{{ clase.title }}</h2>
+  </div>
+
+  <section class="section__class" ng-class="{ 'blur':surgerencia }">
+    <!--<div ng-controller="aviso">
+    </div>-->
+    <article class="card__video">
+      <div ng-controller="embedVideo" class="embedVideo">
+        <iframe ng-src="{{trustSrc(clase.video)}}" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="card__description-class card">
+        <h4>Que aprenderas esta clase</h4>
+        <p>{{ clase.description }}</p>
+      </div>
+    </article>
+
+    <aside class="card__actions" ng-controller="TabsController">
+      <ul class="acctions__tabs-menu">
+        <li ng-class="{ activado:isActive(1) }" class="tab-p"><a ng-click="selectTab(1)">Chat</a></li>
+        <li ng-class="{ activado:isActive(2) }" class="tab-c"><a ng-click="selectTab(2)">Recursos</a></li>
+        <li ng-class="{ activado:isActive(3) }" class="tab-u"><a ng-click="selectTab(3)">Notas</a></li>
+      </ul>
+      <div class="card__actions-tab">
+        <div ng-show="isActive(1)">
+          <chat></chat>
+        </div>
+        <div ng-show="isActive(2)">
+          <recurso></recurso>
+        </div>
+        <div ng-show="isActive(3)">
+          <mis-notas></mis-notas>
+        </div>
+      </div>
+    </aside>
+    <button class="btn-surgerencia" ng-click="surge()">
+      <i class="material-icons">mode_edit</i>
+    </button>
+  </section>
+</section>
+

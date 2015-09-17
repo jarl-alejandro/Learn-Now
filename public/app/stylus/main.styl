@@ -1,0 +1,134 @@
+@import "nib"
+@import "normalize.styl"
+@import "color.styl"
+@import "toolbar.styl"
+@import "fields.styl"
+@import "course.styl"
+@import "auth.styl"
+@import "dashboard.styl"
+@import "class.styl"
+@import "talleres.styl"
+@import "foro.styl"
+@import "details.styl"
+@import "landing.styl"
+
+.card
+  box-shadow 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12)
+  background white
+
+.flex
+  display flex
+
+.relative
+  position relative
+
+.blur
+  -webkit-filter blur(5px)
+
+.mi-apunte
+  padding .5em
+  font-family serif
+  font-weight bold
+  font-size 1.2em
+
+.btn-surgerencia
+  position fixed
+  bottom 2em
+  right 2em
+  background #009688
+  color white
+  border 0
+  width 60px
+  height 60px
+  border-radius 50%
+  outline 0
+
+.pop-pup
+  box-shadow 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12)
+  background white
+  padding .5em
+  position fixed
+  z-index 10000
+  left 20%
+  top -500px
+  transition all ease 2s
+  margin 0
+  padding 0
+
+.mostar
+  top 20%
+
+.quitar
+  top -500px
+
+.pop-pup__title
+  background btn-float-color
+  margin 0
+  padding .5em
+  color white
+  font-weight bold
+
+.pop-pup__form-text
+  resize none
+  width 99%
+  height 6vw
+  outline none
+  border-width 0 0 1px
+  padding 0
+  margin-left 5px
+  &:focus
+    border-bottom 2px solid primary_color
+
+.pop-pup__form-btn
+  background btn-float-color
+  color white
+  border 0
+  outline none
+  position absolute
+  bottom .5em
+  right 1em
+  height 50px
+  width 50px
+  border-radius 50%
+
+.btn-close
+  background accent_color
+  color white
+  outline none
+  border 0
+  border-radius 50%
+  position absolute
+  top -1.5em
+  right -1.5em
+  width 50px
+  height 50px
+  box-shadow 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12)
+
+.surgerencias
+  background accent_color
+  color white
+  padding .5em
+  text-align center
+
+.surge
+  margin 1em 0
+  padding .5em
+  display flex
+
+.surge_user
+  margin 0
+  padding 0
+  width 60px
+  img
+    width 50px
+    height 50px
+.surge__nombre
+  font-weight bold
+  font-style italic
+  font-size 13px
+  text-align center
+
+.surge__texto
+  width 100%
+  margin-left 1.5em
+  font-weight bold

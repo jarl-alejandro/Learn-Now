@@ -1,0 +1,8 @@
+<h3>Talleres</h3>
+<a href="#/add/taller">Agregar nuevo taller</a>
+<section ng-controller="taller">
+  <article ng-repeat="taller in talleres">
+    <h3>{{ taller.title }}</h3>
+    <img src="{{ taller.photo }}" alt="" width="50" height="50" />
+  </article><hr>
+</section>

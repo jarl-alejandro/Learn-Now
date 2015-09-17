@@ -1,0 +1,82 @@
+<div ng-controller="toolbar">
+  <header class="app-bar promote-layer paper-toolbar paper-shadow">
+    <div class="app-bar-container paper-toolbar">
+      <button class="menu" ng-click="flag = !flag">
+         <i class="material-icons">menu</i>
+      </button>
+
+      <div class="Search" ng-controller="buscador">
+
+        <div>
+          <i class="material-icons search-icon">search</i>
+          <input class="Search-input" ng-model="buscartext" ng-change="search()" type="text" placeholder="Busca el curso que deses"  ng-click="shows()"/>
+        </div>
+
+        <div class="lista--curso" ng-class="{ 'mostar-lista__curso': showLista }">
+          <ul class="busrador__menu">
+            <li ng-repeat="result in resultado" class="item__search">
+              <a href="#/mi/curso/{{ result.id }}">
+                <img src="{{ result.photo }}" alt="{{ result.title }}" class="foto__buscar">
+                <span>{{ result.title }}</span>
+              </a>
+            </li>
+            <li class="item__search no-hay" ng-if="resultado == false">No existen coincidencias</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="User" ng-controller="profile">
+        <figure class="User-avatar">
+          <img src="{{ user.avatar }}" alt="{{ user.firstName }}">
+          <figcaption class="User-name">
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+  <nav ng-class="{'mostar-nav':flag}">
+    <div class="UserToolbar" ng-controller="profile">
+      <div class="logo">
+        <h1>Learn Now</h1>
+      </div>
+      <figure class="UserToolbar-avatar">
+        <img src="{{ user.avatar }}" alt="{{ user.firstName }}">
+        <figcaption class="UserToolbar-name">
+          <p>{{ user.firstName }} {{ user.lastName }}</p>
+          <p>{{ user.email }}</p>
+        </figcaption>
+      </figure>
+    </div>
+    <ul class="listMenu">
+      <li class="item">
+        <a href="#/mis/cursos">Inicio</a>
+        <i class="material-icons icon-item">home</i>
+      </li>
+      <!--<li class="item">
+        <a href="#">Perfil</a>
+        <i class="material-icons icon-item">person</i>
+      </li>-->
+      <li class="item">
+        <a href="#/mis/cursos">Mis cursos</a>
+        <i class="material-icons icon-item">shop</i>
+      </li>
+      <li class="item">
+        <a href="#/app">Cursos</a>
+        <i class="material-icons icon-item">store</i>
+      </li>
+      <li class="item">
+        <a href="#/talleres">Talleres</a>
+        <i class="material-icons icon-item">library_books</i>
+      </li>
+      <!--<li class="item">
+        <a href="#/foro">Foro</a>
+        <i class="material-icons icon-item">forum</i>
+      </li>-->
+      <li class="item">
+        <a href="#/logout">Salir</a>
+        <i class="material-icons icon-item">replay</i>
+      </li>
+    </ul>
+  </nav>
+</div>

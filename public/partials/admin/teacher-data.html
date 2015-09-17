@@ -1,0 +1,10 @@
+<section ng-controller="getTeacher">
+  <h2>Profesores</h2>
+  <a href="#/add/teacher">Registar profesor</a>
+  <article ng-repeat="teacher in teachers">
+    <h4>{{ teacher.firstName }} {{ teacher.lastName }}</h4>
+    <p style="font-style:italic">{{ teacher.email  }}</p>
+    <img src="{{ teacher.avatar }}" alt="{{ teacher.firstName }} {{ teacher.lastName }}" width="50" height="50" style="border-radius:50%">
+    <hr>
+  </article>
+</section>

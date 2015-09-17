@@ -1,0 +1,31 @@
+<toolbar></toolbar>
+<section ng-controller="surgerenciaCtrl" class="mi-curso__section">
+  <div ng-class="{ 'mostar':surgerencia, 'quitar':!surgerencia }" class="relative pop-pup">
+    <add-surge></add-surge>
+  </div>
+
+  <div class="mi-curso" ng-if="mycourses" ng-class="{ 'blur':surgerencia }">
+    <article ng-repeat="mycourse in mycourses" class="clase relative">
+      <h3 class="clase__title">
+        {{ mycourse.course.title }}
+      </h3>
+      <a href="#/mi/curso/{{ mycourse.course.id }}" class="go__a">
+        <button class="btn__clase-go">
+          <i class="material-icons">arrow_forward</i>
+        </button>
+      </a>
+      <figure class="clase__photo">
+        <img src="{{ mycourse.course.photo }}" alt="{{ mycourse.course.title }}">
+      </figure>
+      <div class="clase__description">
+        <p>{{ mycourse.course.description | limitTo:50 }}........</p>
+      </div>
+    </article>
+  </div>
+  <div ng-if="mycourses == false">
+    <p>No tienes cursos ve a <a href="#/app">Adquiere nuestros curso</a> </p>
+  </div>
+  <button class="btn-surgerencia" ng-click="surge()">
+    <i class="material-icons">mode_edit</i>
+  </button>
+</section>

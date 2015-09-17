@@ -1,0 +1,26 @@
+<toolbar></toolbar>
+<section class="dashboard">
+  <h1>Dashboard</h1>
+  <a href="#/app">Ir a la plataforma</a>
+  <!-- tabs -->
+  <div ng-controller="TabsController">
+    <ul>
+      <li ng-class="{ activador:isActive(1) }"><a ng-click="selectTab(1)">Curso</a></li>
+      <li ng-class="{ activador:isActive(2) }"><a ng-click="selectTab(2)">Profesor</a></li>
+      <li ng-class="{ activador:isActive(3) }"><a ng-click="selectTab(3)">Taller</a></li>
+    </ul>
+    <div class="tab">
+      <div ng-show="isActive(1)" class="course">
+        <course-data></course-data>
+      </div>
+      <div ng-show="isActive(2)" class="teacher">
+        <teacher-data></teacher-data>
+      </div>
+      <div ng-show="isActive(3)" class="talleres">
+        <talleres-data></talleres-data>
+      </div>
+    </div>
+  </div>
+  <!-- endtabs -->
+</section>
+ <!-- Tabs -->

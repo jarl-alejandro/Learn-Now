@@ -1,0 +1,43 @@
+<toolbar-auth></toolbar-auth>
+<div class="wrapper">
+  <div class="form-wrapper card">
+    <h3 class="Login-title">Inciar sesión</h3>
+    <form name="form" method="POST" ng-submit="login()" enctype="multipart/form-data">
+      <div class="form-group" ng-class='{
+        "has-focus":form.email.hasFocus,
+        "has-success":form.email.$valid,
+        "has-error":form.email.$invalid && (form.$submitted || form.email.$touched),
+        "is-empty":!form.email.$viewValue}'>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" ng-model="authData.email" required
+          ng-focus='form.email.hasFocus=true', ng-blur='form.email.hasFocus=false'>
+          <p ng-show="form.email.$error.required && (form.email.$touched || submitted)" class="error-block">
+            Email es Requerido!
+          </p>
+          <p ng-show="form.email.$error.email && (form.email.$touched || submitted)" class="error-block">
+            Email es invalido!
+          </p>
+      </div>
+      <div class="form-group" ng-class='{
+        "has-focus":form.password.hasFocus,
+        "has-success":form.password.$valid,
+        "has-error":form.password.$invalid && (form.$submitted || form.password.$touched),
+        "is-empty":!form.password.$viewValue}'>
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" ng-model="authData.password" required
+          ng-focus='form.password.hasFocus=true', ng-blur='form.password.hasFocus=false'>
+          <p ng-show="form.password.$error.required && (form.password.$touched || submitted)" class="error-block">
+            Contraseña es Requerido!
+          </p>
+      </div>
+      <button type="submit" ng-disabled="loginForm.$invalid" class="btn-auth">Iniciar sesión</button>
+    </form><br>
+    <p class="resgistrate">
+      <small>
+        ¿Aún no estás registrado?
+      </small>
+    </p>
+  </div>
+</div>
